@@ -1,6 +1,7 @@
 package com.chinafocus.plugin_package;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -36,6 +37,31 @@ public class PluginActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 stopService(mServiceIntent);
+            }
+        });
+
+        findViewById(R.id.bt_plugin_register_receiver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("com.chinafocus.plugin_package.ACTION");
+                registerReceiver(new PluginReceiver(), intentFilter);
+            }
+        });
+
+        findViewById(R.id.bt_plugin_send_receiver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.chinafocus.plugin_package.ACTION");
+                sendBroadcast(intent);
+            }
+        });
+
+        findViewById(R.id.bt_plugin_send_static_receiver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.chinafocus.plugin_package.STATICReceiver");
+                sendBroadcast(intent);
             }
         });
     }

@@ -52,4 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    public void loadApk(View view) {
+        PluginManager.getInstance(this).parserApkAction();
+    }
 }

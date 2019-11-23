@@ -25,4 +25,26 @@
         android:textAllCaps="false"
         android:text="Stop To Service form Plugin" />
 
+
+    <Button
+        android:id="@+id/bt_plugin_register_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Register Receiver form Plugin" />
+
+    <Button
+        android:id="@+id/bt_plugin_send_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Send Receiver form Plugin" />
+
+    <Button
+        android:id="@+id/bt_plugin_send_static_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Send Static Receiver form Plugin" />
+
 </LinearLayout>

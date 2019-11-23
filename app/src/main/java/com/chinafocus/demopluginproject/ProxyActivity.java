@@ -1,8 +1,10 @@
 package com.chinafocus.demopluginproject;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -83,4 +85,17 @@ public class ProxyActivity extends Activity {
         // 这里会有问题！一旦结束服务，所有插件里面的伪服务调用会全部全局停止！
         return super.stopService(mIntentNew);
     }
+
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+        String receiverName = receiver.getClass().getName();
+        return super.registerReceiver(new ProxyReceiver(receiverName), filter);
+    }
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        String action = intent.getAction();
+        super.sendBroadcast(intent);
+    }
+
 }
